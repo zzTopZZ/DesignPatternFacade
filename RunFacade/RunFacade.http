@@ -1,0 +1,6 @@
+@RunFacade_HostAddress = http://localhost:5084
+
+GET {{RunFacade_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
