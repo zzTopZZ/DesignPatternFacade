@@ -1,4 +1,4 @@
-using FacadeApp.Facades;
+using RunFacade.Facades;
 using RunFacade.Subsistemas;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,10 +18,6 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(); // Para testar via interface visual
 
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 

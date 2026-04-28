@@ -1,10 +1,10 @@
-# ??? Design Pattern Facade - Sistema de Concessão de Empréstimos
+# ğŸ—ï¸ Design Pattern Facade - Sistema de ConcessÃ£o de EmprÃ©stimos
 
-Projeto demonstrativo do **padrão de projeto Facade (Fachada)** aplicado a uma Web API em **.NET 8**. A API simula um sistema de análise de crédito que orquestra múltiplos subsistemas através de uma fachada única e simplificada.
+Projeto demonstrativo do **padrÃ£o de projeto Facade (Fachada)** aplicado a uma Web API em **.NET 8**. A API simula um sistema de anÃ¡lise de crÃ©dito que orquestra mÃºltiplos subsistemas atravÃ©s de uma fachada Ãºnica e simplificada.
 
-## ?? O que é o Padrão Facade?
+## ğŸ§ O que Ã© o PadrÃ£o Facade?
 
-O **Facade** é um padrão de projeto estrutural que fornece uma interface simplificada para um conjunto complexo de subsistemas. Em vez do cliente (controller) precisar conhecer e interagir com cada subsistema individualmente, ele se comunica apenas com a fachada, que coordena todas as operações internamente.
+O **Facade** Ã© um padrÃ£o de projeto estrutural que fornece uma interface simplificada para um conjunto complexo de subsistemas. Em vez do cliente (Controller) precisar conhecer e interagir com cada subsistema individualmente, ele se comunica apenas com a fachada, que coordena todas as operaÃ§Ãµes internamente.
 
 ```
                          ????????????????
@@ -30,20 +30,20 @@ RunFacade/
 ??? Entities/
 ?   ??? Cliente.cs                 # Record que representa o cliente
 ??? Facades/
-?   ??? Facade.cs                  # Interface e implementação da Fachada
+?   ??? Facade.cs                  # Interface e implementaï¿½ï¿½o da Fachada
 ??? Subsistemas/
 ?   ??? Cadastro.cs                # Registra o cliente no sistema
-?   ??? Cadin.cs                   # Consulta restrições no CADIN
-?   ??? Serasa.cs                  # Consulta pendências no SERASA
-?   ??? LimiteCredito.cs           # Verifica se o valor está dentro do limite
-??? Program.cs                     # Configuração da aplicação e DI
+?   ??? Cadin.cs                   # Consulta restriï¿½ï¿½es no CADIN
+?   ??? Serasa.cs                  # Consulta pendï¿½ncias no SERASA
+?   ??? LimiteCredito.cs           # Verifica se o valor estï¿½ dentro do limite
+??? Program.cs                     # Configuraï¿½ï¿½o da aplicaï¿½ï¿½o e DI
 ```
 
 ## ?? Como Funciona
 
 ### A Fachada (`MeuFacade`)
 
-A classe `MeuFacade` implementa a interface `IMeuFacade` e encapsula toda a lógica de análise de crédito. O controller só precisa chamar um único método:
+A classe `MeuFacade` implementa a interface `IMeuFacade` e encapsula toda a lï¿½gica de anï¿½lise de crï¿½dito. O controller sï¿½ precisa chamar um ï¿½nico mï¿½todo:
 
 ```csharp
 bool aprovado = _facade.ConcederEmprestimo(cliente, valor);
@@ -51,20 +51,20 @@ bool aprovado = _facade.ConcederEmprestimo(cliente, valor);
 
 ### Subsistemas Orquestrados
 
-Internamente, a fachada coordena **4 subsistemas** em sequência:
+Internamente, a fachada coordena **4 subsistemas** em sequï¿½ncia:
 
 | # | Subsistema       | Responsabilidade                                                    |
 |---|------------------|---------------------------------------------------------------------|
-| 1 | **Cadastro**     | Registra o cliente no banco de dados (simulação)                    |
-| 2 | **CADIN**        | Verifica se o cliente possui restrições no Cadastro Informativo     |
-| 3 | **SERASA**       | Verifica se o cliente possui pendências financeiras                 |
-| 4 | **LimiteCredito**| Verifica se o valor solicitado está dentro do limite (R$ 100.000)   |
+| 1 | **Cadastro**     | Registra o cliente no banco de dados (simulaï¿½ï¿½o)                    |
+| 2 | **CADIN**        | Verifica se o cliente possui restriï¿½ï¿½es no Cadastro Informativo     |
+| 3 | **SERASA**       | Verifica se o cliente possui pendï¿½ncias financeiras                 |
+| 4 | **LimiteCredito**| Verifica se o valor solicitado estï¿½ dentro do limite (R$ 100.000)   |
 
-Se **qualquer** verificação falhar, o empréstimo é negado imediatamente (fail-fast).
+Se **qualquer** verificaï¿½ï¿½o falhar, o emprï¿½stimo ï¿½ negado imediatamente (fail-fast).
 
-### Injeção de Dependência
+### Injeï¿½ï¿½o de Dependï¿½ncia
 
-Todos os subsistemas e a fachada são registrados no container de DI nativo do .NET:
+Todos os subsistemas e a fachada sï¿½o registrados no container de DI nativo do .NET:
 
 ```csharp
 builder.Services.AddScoped<Cadastro>();
@@ -78,29 +78,29 @@ builder.Services.AddScoped<IMeuFacade, MeuFacade>();
 
 ## ?? Tecnologias Utilizadas
 
-| Tecnologia               | Versão | Descrição                                   |
+| Tecnologia               | Versï¿½o | Descriï¿½ï¿½o                                   |
 |--------------------------|--------|---------------------------------------------|
-| **.NET**                 | 8.0    | Framework principal da aplicação             |
-| **ASP.NET Core Web API** | —      | Framework para construção da API REST        |
-| **Swashbuckle**          | 6.6.2  | Swagger UI para documentação e teste da API  |
+| **.NET**                 | 8.0    | Framework principal da aplicaï¿½ï¿½o             |
+| **ASP.NET Core Web API** | ï¿½      | Framework para construï¿½ï¿½o da API REST        |
+| **Swashbuckle**          | 6.6.2  | Swagger UI para documentaï¿½ï¿½o e teste da API  |
 
 ---
 
 ## ?? Como Executar
 
-### Pré-requisitos
+### Prï¿½-requisitos
 
 - [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
 
 ### Passos
 
-1. **Clone o repositório:**
+1. **Clone o repositï¿½rio:**
    ```bash
    git clone https://github.com/zzTopZZ/DesignPatternFacade.git
    cd DesignPatternFacade
    ```
 
-2. **Execute a aplicação:**
+2. **Execute a aplicaï¿½ï¿½o:**
    ```bash
    dotnet run --project RunFacade
    ```
@@ -109,7 +109,7 @@ builder.Services.AddScoped<IMeuFacade, MeuFacade>();
    ```
    https://localhost:{porta}/swagger
    ```
-   > A porta será exibida no terminal ao iniciar a aplicação.
+   > A porta serï¿½ exibida no terminal ao iniciar a aplicaï¿½ï¿½o.
 
 ---
 
@@ -125,7 +125,7 @@ POST /api/Emprestimo/analisar
 
 ```json
 {
-  "nomeCliente": "João Silva",
+  "nomeCliente": "Joï¿½o Silva",
   "valor": 50000
 }
 ```
@@ -135,7 +135,7 @@ POST /api/Emprestimo/analisar
 ```bash
 curl -X POST https://localhost:{porta}/api/Emprestimo/analisar \
   -H "Content-Type: application/json" \
-  -d '{"nomeCliente": "João Silva", "valor": 50000}'
+  -d '{"nomeCliente": "Joï¿½o Silva", "valor": 50000}'
 ```
 
 ### Respostas
@@ -145,7 +145,7 @@ curl -X POST https://localhost:{porta}/api/Emprestimo/analisar \
 ```json
 {
   "status": "Aprovado",
-  "mensagem": "Crédito concedido para João Silva"
+  "mensagem": "Crï¿½dito concedido para Joï¿½o Silva"
 }
 ```
 
@@ -154,7 +154,7 @@ curl -X POST https://localhost:{porta}/api/Emprestimo/analisar \
 ```json
 {
   "status": "Negado",
-  "mensagem": "Restrições encontradas ou limite insuficiente"
+  "mensagem": "Restriï¿½ï¿½es encontradas ou limite insuficiente"
 }
 ```
 
@@ -165,17 +165,17 @@ curl -X POST https://localhost:{porta}/api/Emprestimo/analisar \
 1. Abra o **Swagger UI** no navegador.
 2. Expanda o endpoint `POST /api/Emprestimo/analisar`.
 3. Clique em **Try it out**.
-4. Envie um valor de até `100000` para obter aprovação.
-5. Envie um valor acima de `100000` para simular negação por limite de crédito.
+4. Envie um valor de atï¿½ `100000` para obter aprovaï¿½ï¿½o.
+5. Envie um valor acima de `100000` para simular negaï¿½ï¿½o por limite de crï¿½dito.
 
 ---
 
-## ?? Referências
+## ?? Referï¿½ncias
 
-- [Facade Pattern — Refactoring Guru](https://refactoring.guru/design-patterns/facade)
+- [Facade Pattern ï¿½ Refactoring Guru](https://refactoring.guru/design-patterns/facade)
 
 ---
 
-## ?? Licença
+## ?? Licenï¿½a
 
-Este projeto é disponibilizado sob a licença **MIT**.
+Este projeto ï¿½ disponibilizado sob a licenï¿½a **MIT**.

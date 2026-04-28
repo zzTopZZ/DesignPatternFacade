@@ -1,8 +1,8 @@
-﻿using FacadeApp.Facades;
+﻿﻿using RunFacade.Facades;
 using Microsoft.AspNetCore.Mvc;
 using RunFacade.Entities;
 
-namespace FacadeApp.Controllers;
+namespace RunFacade.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]

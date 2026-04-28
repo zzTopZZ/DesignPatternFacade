@@ -1,7 +1,7 @@
-﻿using RunFacade.Entities;
+﻿﻿using RunFacade.Entities;
 using RunFacade.Subsistemas;
 
-namespace FacadeApp.Facades;
+namespace RunFacade.Facades;
 
 public interface IMeuFacade
 {
