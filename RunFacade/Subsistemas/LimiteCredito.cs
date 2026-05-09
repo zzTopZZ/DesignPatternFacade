@@ -2,7 +2,7 @@
 {
     public class LimiteCredito
     {
-        public bool PossuiLimite(Entities.Cliente cliente, decimal valor)
+        public static bool PossuiLimite(Entities.Cliente cliente, decimal valor)
         {
             Console.WriteLine($"[ANALISE] Verificando limite para o valor de {valor:C}...");
 

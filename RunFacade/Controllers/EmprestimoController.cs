@@ -1,6 +1,8 @@
-﻿﻿using RunFacade.Facades;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using RunFacade.DTOs.Request;
+using RunFacade.DTOs.Response;
 using RunFacade.Entities;
+﻿using RunFacade.Facades;
 
 namespace RunFacade.Controllers;
 
@@ -16,17 +18,20 @@ public class EmprestimoController : ControllerBase
     }
 
     [HttpPost("analisar")]
+    [ProducesResponseType(typeof(AnaliseResponse), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public IActionResult Analisar([FromBody] SolicitacaoRequest request)
     {
         var cliente = new Cliente(request.NomeCliente);
         bool aprovado = _facade.ConcederEmprestimo(cliente, request.Valor);
 
         if (aprovado)
-            return Ok(new { status = "Aprovado", mensagem = $"Crédito concedido para {cliente.Nome}" });
+        {
+            var resposta = new AnaliseResponse("Aprovado", $"Crédito concedido para {cliente.Nome}");
+            return Ok(resposta);
+        }
 
-        return BadRequest(new { status = "Negado", mensagem = "Restrições encontradas ou limite insuficiente" });
+        return BadRequest(new { status = "Negado", mensagem = "Restrições..." });
     }
 }
 
-// DTO para receber os dados do JSON
-public record SolicitacaoRequest(string NomeCliente, decimal Valor);
