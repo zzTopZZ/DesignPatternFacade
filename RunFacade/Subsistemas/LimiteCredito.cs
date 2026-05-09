@@ -1,8 +1,10 @@
-﻿namespace RunFacade.Subsistemas
+﻿using RunFacade.Entities;
+
+namespace RunFacade.Subsistemas
 {
-    public class LimiteCredito
+    public static class LimiteCredito
     {
-        public static bool PossuiLimite(Entities.Cliente cliente, decimal valor)
+        public static bool PossuiLimite(Cliente cliente, decimal valor)
         {
             Console.WriteLine($"[ANALISE] Verificando limite para o valor de {valor:C}...");
 

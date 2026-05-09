@@ -1,6 +1,6 @@
 ﻿namespace RunFacade.Subsistemas
 {
-    public class Cadin
+    public static class Cadin
     {
         public static bool EstaNoCadin(Entities.Cliente cliente)
         {

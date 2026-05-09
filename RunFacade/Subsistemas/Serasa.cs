@@ -1,6 +1,6 @@
 ﻿namespace RunFacade.Subsistemas
 {
-    public class Serasa
+    public static class Serasa
     {
         public static bool PossuiPendencias(Entities.Cliente cliente)
         {

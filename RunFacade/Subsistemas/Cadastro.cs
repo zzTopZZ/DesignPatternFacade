@@ -1,6 +1,6 @@
 namespace RunFacade.Subsistemas
 {
-    public class Cadastro
+    public static class Cadastro
     {
         public static void CadastrarCliente(Entities.Cliente cliente)
         {
